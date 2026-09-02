@@ -96,6 +96,7 @@ function createRequestHandler({ walletService = getProcessWalletService() } = {}
       if (request.method === 'GET' && checkRoute(url.pathname) !== null && isNotFoundError(error)) {
         return sendJson(response, 404, { ok: false, error: 'Invoice not found' });
       }
+      console.error('wallet request failed', error && error.name ? error.name : 'UnknownError');
       return sendJson(response, 502, { ok: false, error: 'Wallet service unavailable' });
     }
   };

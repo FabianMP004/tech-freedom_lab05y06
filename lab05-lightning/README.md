@@ -10,7 +10,7 @@ Copy `.env.example` to a local environment file and provide values at runtime:
 
 - `WDK_MNEMONIC` — runtime wallet secret; never commit it.
 - `WDK_STORAGE_KEY` — runtime 32-byte storage-encryption secret; never commit it.
-- `WDK_NETWORK` — non-secret network name (the example uses `testnet`).
+- `WDK_NETWORK` — non-secret Spark network (`MAINNET`, `TESTNET`, or `REGTEST`); production uses `MAINNET`.
 - `WDK_RPC_URL` — non-secret RPC endpoint for the selected network.
 - `WDK_LIGHTNING_PACKAGE` — runtime Lightning adapter package; defaults to `@tetherto/wdk-wallet-spark`.
 - `PAY_AUTH_TOKEN` — runtime-only token required as `Authorization: Bearer ...` for payments; never commit a value.
