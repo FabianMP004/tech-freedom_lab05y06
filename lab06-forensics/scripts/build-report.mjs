@@ -33,19 +33,19 @@ Generated from the local public-evidence note dated 2026-09-01. This report does
 - Lock observation: method/action \`Lock\`; function \`lock(bytes32 preimageHash, address claimAddress, uint256 timelock)\`; selector \`0x0899146b\`; block \`12063470\`; value \`0.02213081 ETH\`.
 - Lock parameters observed in the decoded event: preimageHash \`0x712071d518bf6c5407f5e606c32cfe654541c72a3879dbc5edf293e8934aad54\`, claimAddress \`0x89aDC1d19ccF3e5E74550CDB831594013CFDD83c\`, refundAddress/sender \`0xB34817A34a965E426BBcbBFFaD085Aa7B6a09426\`, timelock \`12064183\`.
 - Claim observation: function \`claim(bytes32 preimage, uint256 amount, address refundAddress, uint256 timelock)\`; selector \`0xc3c37fbc\`; block \`12063476\`; revealed preimage \`0xbd512a8b7207d4d04ee7ddc7224961cfeb55f06641b2446fa8a86a3b115ee78b\`.
-- Raw lock calldata: \\`0x0899146b712071d518bf6c5407f5e606c32cfe654541c72a3879dbc5edf293e8934aad5400000000000000000000000089adc1d19ccf3e5e74550cdb831594013cfdd83c0000000000000000000000000000000000000000000000000000000000b815b7\\`; calldata length: \\`100\\` bytes; receipt status: \\`0x1\\`; gas limit: \\`0xb701\\`; gas used: \\`0xb701\\`; gas price: \\`0x266ac43200\\`.
-- Raw claim calldata: \\`0xc3c37fbcbd512a8b7207d4d04ee7ddc7224961cfeb55f06641b2446fa8a86a3b115ee78b000000000000000000000000000000000000000000000000004e9fdabca44400000000000000000000000000b34817a34a965e426bbcbbffad085aa7b6a094260000000000000000000000000000000000000000000000000000000000b815b7\\`; calldata length: \\`132\\` bytes; receipt status: \\`0x1\\`; gas limit: \\`0xa4d8\\`; gas used: \\`0x61ae\\`; gas price: \\`0x2794ca2400\\`.
-- Decoded claim parameters: preimage \\`0xbd512a8b7207d4d04ee7ddc7224961cfeb55f06641b2446fa8a86a3b115ee78b\\`, amount \\`22130810000000000\\` wei, refund address \\`0xb34817a34a965e426bbcbbffad085aa7b6a09426\\`, timelock \\`12064183\\`.
+- Raw lock calldata: \`0x0899146b712071d518bf6c5407f5e606c32cfe654541c72a3879dbc5edf293e8934aad5400000000000000000000000089adc1d19ccf3e5e74550cdb831594013cfdd83c0000000000000000000000000000000000000000000000000000000000b815b7\`; calldata byte length: \`100\`; receipt status: \`0x1\`; gas limit: \`0xb701\`; gas used: \`0xb701\`; gas price: \`0x266ac43200\`.
+- Raw claim calldata: \`0xc3c37fbcbd512a8b7207d4d04ee7ddc7224961cfeb55f06641b2446fa8a86a3b115ee78b000000000000000000000000000000000000000000000000004e9fdabca44400000000000000000000000000b34817a34a965e426bbcbbffad085aa7b6a094260000000000000000000000000000000000000000000000000000000000b815b7\`; calldata byte length: \`132\`; receipt status: \`0x1\`; gas limit: \`0xa4d8\`; gas used: \`0x61ae\`; gas price: \`0x2794ca2400\`.
+- Decoded claim parameters: preimage \`0xbd512a8b7207d4d04ee7ddc7224961cfeb55f06641b2446fa8a86a3b115ee78b\`, amount \`22130810000000000\` wei, refund address \`0xb34817a34a965e426bbcbbffad085aa7b6a09426\`, timelock \`12064183\`.
 - Documented EtherSwap function inventory: \`lock(bytes32,address,uint256)\` → \`0x0899146b\`; \`claim(bytes32,uint256,address,uint256)\` → \`0xc3c37fbc\`; \`refund(bytes32,uint256,address,uint256)\` → \`0x35cd4ccb\`.
 
 ### Bitcoin
 
 - Primary documented funding transaction: \`${btc.funding}\`, output 1 ([Blockstream](${btc.fundingUrl})).
 - Second verification transaction: \`${btc.spend}\` ([Blockstream](${btc.spendUrl})); the note records that it spends the documented funding output.
-- Funding raw facts: confirmed block \\`872044\\`; output 1 is \\`v1_p2tr\\`, value \\`10000\\` sats, scriptPubKey \\`5120562529047f476b9a833a5a780a75845ec32980330d76d1ac9f351dc76bce5d72\\`; transaction size \\`234\\`, weight \\`609\\`, fee \\`700\\`, therefore \\`153 vbytes\\`.
-- Spend raw facts: confirmed block \\`872044\\`; input 1 spends funding output 1 and has \\`v1_p2tr\\` prevout; transaction size \\`321\\`, weight \\`726\\`, fee \\`3895\\`, therefore \\`182 vbytes\\`.
-- Spend witness for the Taproot input: \\`03\\`, \\`5387\\`, and the 129-byte control block captured by \\`data/btc/capture.json\\`.
-- Spend type: **script-path**; witness element count: \\`3\\`; leaf script: \\`0x5387\\`; control block leaf version: \\`0xc0\\`. The control block exposes a Merkle path, but public data cannot determine the total number of other leaves/conditions in the Taproot tree. No settled status or service identity is supplied.
+- Funding raw facts: confirmed block \`872044\`; output 1 is \`v1_p2tr\`, value \`10000\` sats, scriptPubKey \`5120562529047f476b9a833a5a780a75845ec32980330d76d1ac9f351dc76bce5d72\`; transaction size \`234\`, weight \`609\`, fee \`700\`, therefore \`153 vbytes\`.
+- Spend raw facts: confirmed block \`872044\`; input 1 spends funding output 1 and has \`v1_p2tr\` prevout; transaction size \`321\`, weight \`726\`, fee \`3895\`, therefore \`182 vbytes\`.
+- Spend witness for the Taproot input: \`03\`, \`5387\`, and the 129-byte control block captured from the public transaction.
+- Spend type: **script-path**; witness element count: \`3\`; leaf script: \`0x5387\`; control block leaf version: \`0xc0\`. The control block exposes a Merkle path, but public data cannot determine the total number of other leaves/conditions in the Taproot tree. No settled status or service identity is supplied.
 
 ## What can be inferred
 
