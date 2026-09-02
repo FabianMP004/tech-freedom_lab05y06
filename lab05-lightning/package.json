@@ -1,0 +1,15 @@
+{
+  "name": "lab05-lightning",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Secret-safe Lab 05 Lightning app using the Spark WDK adapter",
+  "scripts": {
+    "test": "node --test",
+    "start": "python3 -m http.server 8080 --directory public",
+    "dev": "python3 -m http.server 8080 --directory public"
+  },
+  "dependencies": {
+    "@tetherto/wdk-utils": "^1.0.0-beta.11",
+    "@tetherto/wdk-wallet-spark": "1.0.0-beta.25"
+  }
+}

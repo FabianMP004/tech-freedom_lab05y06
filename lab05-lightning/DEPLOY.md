@@ -1,0 +1,49 @@
+# Deploying Lab 05 Lightning
+
+Vercel serves `public/` as the static UI and routes `/api/*` to the existing
+Node entry point in `api/index.js`. The API uses the configured runtime wallet
+adapter; `WDK_LIGHTNING_PACKAGE` identifies that package at runtime. This
+project does not claim Lightning support beyond the configured adapter.
+A real WDK Lightning adapter/package is still required for Lightning behavior;
+this document does not claim deployment or cross-payment evidence.
+
+## Configure and deploy
+
+Set these environment variables in the Vercel project for the intended
+environment: `WDK_MNEMONIC`, `WDK_STORAGE_KEY`, `WDK_NETWORK`, `WDK_RPC_URL`,
+`WDK_LIGHTNING_PACKAGE`, and `PAY_AUTH_TOKEN`. Secrets must be entered in the
+Vercel dashboard or CLI environment configuration and never committed or put
+in the browser bundle.
+
+```sh
+vercel --prod
+```
+
+Verify the deployment with `GET https://<deployment>/api/health` if the runtime
+adapter exposes the health route, then capture the configured node ID here:
+
+- Node ID: `<capture from the configured runtime adapter>`
+- Health result: `<record timestamp and response>`
+
+Cross-payment evidence should be captured only after two separately configured
+runtime adapters complete a test payment:
+
+- Sender adapter / invoice ID: `<evidence placeholder>`
+- Receiver adapter / settlement result: `<evidence placeholder>`
+- Timestamp and deployment URL: `<evidence placeholder>`
+
+## Local verification packet
+
+Before any authorized deployment, verify the local shell with fake wallet mode
+only. This project keeps the deployment URL, node identity, and cross-payment
+fields unresolved until the user supplies authorized runtime evidence:
+
+```sh
+npm test
+node scripts/secret-scan.mjs
+WDK_FAKE_WALLET=1 npm start
+```
+
+Do not replace the evidence placeholders with invented values. Enter runtime
+secrets only through the deployment environment, never in this repository or
+the browser bundle.

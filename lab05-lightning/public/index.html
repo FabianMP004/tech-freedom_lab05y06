@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lab 05 Lightning wallet shell">
+    <title>Lightning Lab</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Lab 05</p>
+        <h1>Lightning wallet</h1>
+        <p class="intro">A small, focused workspace for receiving and paying on Lightning.</p>
+      </header>
+
+      <div class="sections">
+        <section class="panel" aria-labelledby="receive-title">
+          <p class="section-label">01</p>
+          <h2 id="receive-title">Receive</h2>
+          <p class="muted">Create a request when you are ready to receive funds.</p>
+          <form id="receive-form">
+            <label for="receive-amount">Amount</label>
+            <div class="input-row">
+              <input id="receive-amount" name="receive-amount" type="number" min="0" step="1" placeholder="0" inputmode="numeric">
+              <span aria-hidden="true">sats</span>
+            </div>
+            <button type="submit">Prepare receive request</button>
+          </form>
+          <div id="receive-result" class="result" hidden>
+            <div id="receive-qr" class="qr" aria-label="Lightning invoice QR code"></div>
+            <label for="receive-bolt11">Invoice</label>
+            <div class="copy-row">
+              <textarea id="receive-bolt11" rows="3" readonly spellcheck="false"></textarea>
+              <button id="receive-copy" class="secondary" type="button">Copy</button>
+            </div>
+            <p id="receive-state" class="muted" role="status"></p>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="pay-title">
+          <p class="section-label">02</p>
+          <h2 id="pay-title">Pay</h2>
+          <p class="muted">Paste a payment request to continue.</p>
+          <form id="pay-form">
+            <label for="payment-request">Payment request</label>
+            <textarea id="payment-request" name="payment-request" rows="4" placeholder="Paste a request here" spellcheck="false"></textarea>
+            <label for="pay-token">Runtime payment token</label>
+            <input id="pay-token" name="pay-token" type="password" autocomplete="off" placeholder="Enter token for this payment">
+            <button type="submit">Prepare payment</button>
+          </form>
+          <div id="pay-result" class="result" hidden>
+            <p id="pay-state" role="status"></p>
+          </div>
+        </section>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
