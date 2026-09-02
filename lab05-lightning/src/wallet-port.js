@@ -110,7 +110,9 @@ function createConfiguredWalletFactory(config, { loadPackage = require } = {}) {
     throwUnavailableLightningAdapter('no WDK Lightning package is configured');
   }
   if (config.lightningPackage === SPARK_PACKAGE) {
-    const loadSparkPackage = loadPackage === require ? (packageName) => import(packageName) : loadPackage;
+    const loadSparkPackage = loadPackage === require
+      ? () => import('@tetherto/wdk-wallet-spark')
+      : loadPackage;
     return async ({ state } = {}) => {
       const factory = await createSparkWalletFactory(config, loadSparkPackage);
       return factory({ state });
